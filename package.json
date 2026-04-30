@@ -1,6 +1,6 @@
 {
   "name": "@sporting/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Współdzielone komponenty UI dla ekosystemu aplikacji Sporting (MyCoach, Cockpit, Grafik, Hub, Plakat Studio, Lingua AI, Procesy, Kampanie, Kadry, Tablice Kamishibai, Onboarding).",
   "private": false,
   "type": "module",
@@ -16,7 +16,7 @@
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
-    "lucide-react": ">=0.300.0"
+    "lucide-react": "*"
   },
   "repository": {
     "type": "git",
