@@ -1,0 +1,27 @@
+{
+  "name": "@sporting/ui",
+  "version": "1.0.0",
+  "description": "Współdzielone komponenty UI dla ekosystemu aplikacji Sporting (MyCoach, Cockpit, Grafik, Hub, Plakat Studio, Lingua AI, Procesy, Kampanie, Kadry, Tablice Kamishibai, Onboarding).",
+  "private": false,
+  "type": "module",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./ConfirmDialog": "./src/ConfirmDialog.jsx"
+  },
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "lucide-react": ">=0.300.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrzej-sporting/sporting-shared.git"
+  },
+  "author": "Andrzej Goldyn (Sporting)",
+  "license": "UNLICENSED"
+}
