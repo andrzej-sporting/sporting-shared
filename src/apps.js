@@ -97,6 +97,16 @@ export const APPS = [
     url: 'https://zp.processapp.pl/dashboard',
   },
   {
+    id: 'procedury',
+    name: 'Procedury',
+    color: '#22c55e',
+    accent: '#16a34a',
+    icon: 'FileText',
+    tagline: 'Jak to zrobić? Zapytaj',
+    short: 'Procedury i standardy + bot wyszukujący',
+    url: 'https://wiedza-sporting.web.app/',
+  },
+  {
     id: 'lingua',
     name: 'LinguaAI',
     color: '#06b6d4',
