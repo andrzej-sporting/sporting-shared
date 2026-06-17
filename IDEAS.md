@@ -72,6 +72,13 @@
 ## 🧩 Wspólne UI (sporting-shared)
 
 ## 🌐 Pomysły przekrojowe (kilka apek naraz)
+- `🔨 W TRAKCIE` · 2026-06-17 · META / wszystkie apki · **Cel nadrzędny Andrzeja: praca z Claude Code w trybie
+  ciągłym = JEDNA WSPÓLNA PAMIĘĆ** (jedno źródło prawdy) dla wszystkich sesji (web/PC/telefon) i wszystkich apek.
+  To jest właściwy powód powstania IDEAS.md. Stan: mamy `IDEAS.md` + hooki auto-wczytujące (PC globalny + web w repo).
+  RYZYKO: sesja PC prowadzi OSOBNY system pamięci (bus z zadaniami `zadanie-YYYY-MM-DD-temat.md` / `done-…`,
+  „indeks pamięci", zasady numerowane np. 15.2, backupy, ping Bitrix przez `notify-bitrix.cjs`) — czyli są DWA mózgi.
+  PLAN: (1) **[NEXT]** zmapować system pamięci PC do wspólnego miejsca; (2) wybrać jedno źródło prawdy;
+  (3) wpiąć wszystko (hooki czytają i piszą tylko tam). Decyzja Andrzeja (2026-06-17): najpierw zmapować PC.
 
 ## 🚀 Nowe projekty / inicjatywy (poza istniejącymi apkami)
 <!-- Pomysły, które nie pasują do żadnej obecnej apki: nowe aplikacje,
