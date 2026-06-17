@@ -61,6 +61,11 @@
 
 ## 🌐 Pomysły przekrojowe (kilka apek naraz)
 
+## 🚀 Nowe projekty / inicjatywy (poza istniejącymi apkami)
+<!-- Pomysły, które nie pasują do żadnej obecnej apki: nowe aplikacje,
+     narzędzia wewnętrzne, automatyzacje, pomysły biznesowe, eksperymenty.
+     Gdy taki pomysł dojrzeje i dostanie własne repo — dopisz je do mapy wyżej. -->
+
 ---
 
 ### Przykład wpisu (do skasowania przy pierwszym realnym pomyśle)
