@@ -35,11 +35,13 @@
 
 ## 🧠 MyCoach
 <!-- pomysły dot. MyCoach -->
-- `🔨 W TRAKCIE` · 2026-06-17 · MyCoach · 🔒 PILNE / BEZPIECZEŃSTWO · W repo zaszyte na sztywno
-  poświadczenia: hasło do SQL Server + API key do Cloud Functions (plik `scripts/subiekt-to-mycoach.cjs`,
-  ~linie 20–37). Do zrobienia: (1) OBRÓCIĆ poświadczenia — nowe hasło SQL i nowy API key (stare = skompromitowane);
-  (2) przenieść do zmiennych środowiskowych (`.env` + `.gitignore`, nie commitować); (3) rozważyć usunięcie z historii
-  git (BFG / git filter-repo). Naprawa po stronie repo MyCoach (nie sporting-shared). [znalezione w analizie kodu]
+- `🔨 W TRAKCIE` · 2026-06-17 · MyCoach · 🔒 PILNE / BEZPIECZEŃSTWO · Zaszyte na sztywno poświadczenia w kodzie.
+  POSTĘP (sesja PC): kod oczyszczony — wszystkie sekrety przeniesione do `.env` przez wspólny `scripts/secrets.cjs`
+  (znaleziono więcej niż zakładano: hasło SQL w 7 plikach, API key w 6, + hasło FTP i 2 inne); dodany `.env.example`
+  + `.gitignore`; PR #2 w repo MyCoach (czeka na scalenie). Czyszczenie historii git: świadomie ODPUSZCZONE
+  (stawiamy na rotację). POZOSTAJE — KRYTYCZNE: rotacja po stronie Kuby (Jakub Kurpisz) — zmiana hasła SQL na bazie
+  + wymiana klucza API + przepięcie `functions/index.js` na Secret Manager (~15 min, jeden ruch). Zlecone na bus
+  Kuby + ping Bitrix (msg 127061). Repo MyCoach jest prywatne (wyciek ograniczony). Przypomnieć ~20.06.
 - `🔨 W TRAKCIE` · 2026-06-17 · MyCoach · Dostęp Claude do danych z apki — Krok 1 ZROBIONY (analiza kodu):
   dane operacyjne w Google Firestore (NoSQL, projekt `raport-dnia-sporting`, ~130 kolekcji: reports, tasks,
   projects, kpiData, coaching, HR/grafik…), pliki w Firebase Storage, logika w Cloud Functions; SQL Server
