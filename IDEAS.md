@@ -35,11 +35,16 @@
 
 ## 🧠 MyCoach
 <!-- pomysły dot. MyCoach -->
-- `💡 NOWY` · 2026-06-17 · MyCoach · Umożliwić Claude czytanie danych z działającej apki
-  (raporty, dane coachingowe). Krok 1: dodać repo `MyCoach` do sesji, żeby Claude przejrzał
-  kod i ustalił sposób przechowywania danych. Krok 2: wybrać najbezpieczniejszą drogę dostępu
-  — eksport CSV/JSON, API tylko-do-odczytu lub dobudowanie funkcji eksportu. Uwaga: dane mogą
-  zawierać dane osobowe (zawodnicy) — preferować eksport / read-only, ostrożnie z RODO.
+- `🔨 W TRAKCIE` · 2026-06-17 · MyCoach · 🔒 PILNE / BEZPIECZEŃSTWO · W repo zaszyte na sztywno
+  poświadczenia: hasło do SQL Server + API key do Cloud Functions (plik `scripts/subiekt-to-mycoach.cjs`,
+  ~linie 20–37). Do zrobienia: (1) OBRÓCIĆ poświadczenia — nowe hasło SQL i nowy API key (stare = skompromitowane);
+  (2) przenieść do zmiennych środowiskowych (`.env` + `.gitignore`, nie commitować); (3) rozważyć usunięcie z historii
+  git (BFG / git filter-repo). Naprawa po stronie repo MyCoach (nie sporting-shared). [znalezione w analizie kodu]
+- `🔨 W TRAKCIE` · 2026-06-17 · MyCoach · Dostęp Claude do danych z apki — Krok 1 ZROBIONY (analiza kodu):
+  dane operacyjne w Google Firestore (NoSQL, projekt `raport-dnia-sporting`, ~130 kolekcji: reports, tasks,
+  projects, kpiData, coaching, HR/grafik…), pliki w Firebase Storage, logika w Cloud Functions; SQL Server
+  (Subiekt GT) to TYLKO feed → Firestore (jednokierunkowo). Krok 2 (rekomendacja): czytać przez konto serwisowe
+  Firebase TYLKO-DO-ODCZYTU albo zaplanowany eksport kolekcji do JSON. Uwaga RODO — dane pracowników/zawodników.
 
 ## 🎯 Cockpit
 <!-- ... -->
