@@ -35,6 +35,11 @@
 
 ## 🧠 MyCoach
 <!-- pomysły dot. MyCoach -->
+- `💡 NOWY` · 2026-06-17 · MyCoach · Umożliwić Claude czytanie danych z działającej apki
+  (raporty, dane coachingowe). Krok 1: dodać repo `MyCoach` do sesji, żeby Claude przejrzał
+  kod i ustalił sposób przechowywania danych. Krok 2: wybrać najbezpieczniejszą drogę dostępu
+  — eksport CSV/JSON, API tylko-do-odczytu lub dobudowanie funkcji eksportu. Uwaga: dane mogą
+  zawierać dane osobowe (zawodnicy) — preferować eksport / read-only, ostrożnie z RODO.
 
 ## 🎯 Cockpit
 <!-- ... -->
@@ -67,7 +72,3 @@
      Gdy taki pomysł dojrzeje i dostanie własne repo — dopisz je do mapy wyżej. -->
 
 ---
-
-### Przykład wpisu (do skasowania przy pierwszym realnym pomyśle)
-- `💡 NOWY` · 2026-06-17 · MyCoach · Dodać szybki przycisk "raport głosowy" na ekranie
-  głównym — coach dyktuje, AI transkrybuje i tworzy szkic raportu.
