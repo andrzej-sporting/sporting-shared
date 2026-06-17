@@ -2,6 +2,10 @@
 
 Współdzielone komponenty UI dla **Design System Sporting** (ekosystem 12 aplikacji wewnętrznych).
 
+> 💡 **Pomysły i idee do apek** zgłaszamy w centralnym inboxie:
+> [`Sporting-Source-of-Truth/IDEAS.md`](https://github.com/andrzej-sporting/Sporting-Source-of-Truth/blob/master/IDEAS.md).
+> Tam Claude je zapisuje (pamięć między sesjami) i stamtąd wdraża do właściwej apki.
+
 ## Instalacja w apce
 
 ```bash
