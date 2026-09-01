@@ -82,9 +82,32 @@ function deepClone(obj) {
 // === MAIN ===
 log('🔁 Sync bookmarks — Default → wszystkie inne profile');
 
+// Otwarty Chrome to NIE awaria — to znaczy "nie teraz". Przez to zadanie w Harmonogramie
+// konczylo sie bledem przy KAZDYM przebiegu (Chrome u nas stoi otwarty tygodniami),
+// wiec straznik automatow pokazywal je na czerwono bez przerwy i przestal cokolwiek znaczyc.
+// Teraz: odlozenie konczy sie kodem 0 — ALE tylko dopoki jest swieze. Gdy ostatnia UDANA
+// synchronizacja jest starsza niz 14 dni, odlozenie zamienia sie w alarm — inaczej cisza
+// bylaby nieodrozninalna od dzialajacego automatu. 1.09.2026.
+const ZNACZNIK_UDANEJ = 'c:/tmp/bookmarks-ostatnia-udana.txt';
+const DNI_TOLERANCJI = 14;
+
 if (isChromeRunning() && !FORCE) {
-  log('❌ Chrome jest uruchomiony. Zamknij Chrome lub użyj --force.');
-  process.exit(1);
+  let dniOdUdanej = null;
+  try {
+    const t = fs.statSync(ZNACZNIK_UDANEJ).mtime.getTime();
+    dniOdUdanej = Math.floor((Date.now() - t) / 86400000);
+  } catch { /* znacznika nie ma — nigdy sie nie udalo */ }
+
+  if (dniOdUdanej === null || dniOdUdanej > DNI_TOLERANCJI) {
+    const ile = dniOdUdanej === null ? 'NIGDY' : dniOdUdanej + ' dni temu';
+    log('🚩 Chrome otwarty, a ostatnia udana synchronizacja: ' + ile + '.');
+    log('   To juz nie jest "nie teraz" — zakladki miedzy profilami sie rozjechaly.');
+    log('   Zamknij Chrome raz albo uruchom recznie z --force (robi kopie zapasowa).');
+    process.exit(1);
+  }
+  log('⏸️  Chrome otwarty — odkladam. Ostatnia udana: ' + dniOdUdanej + ' dni temu (tolerancja ' + DNI_TOLERANCJI + ').');
+  log('   Zrobi sie przy najblizszym starcie komputera, zanim Chrome wstanie.');
+  process.exit(0);
 }
 
 const sourcePath = path.join(CHROME_USER_DATA, SOURCE_PROFILE);
@@ -173,5 +196,15 @@ for (const profileName of profiles) {
 }
 
 log(`\n✅ Zakończono: ${synced} zsynchronizowanych, ${skipped} pominięte`);
+
+// Znacznik UDANEJ synchronizacji. Czyta go bramka na gorze pliku: dopoki jest swiezy,
+// otwarty Chrome wolno potraktowac jako "nie teraz"; gdy sie zestarzeje — to juz awaria.
+if (!DRY_RUN && synced > 0) {
+  try {
+    fs.writeFileSync(ZNACZNIK_UDANEJ, new Date().toISOString() + " · profili: " + synced, "utf8");
+  } catch (e) {
+    log("   (nie udalo sie zapisac znacznika udanej synchronizacji: " + e.message + ")");
+  }
+}
 log(`   Backup: ${backupDir}`);
 if (DRY_RUN) log('   (DRY RUN — nic nie zapisane)');
